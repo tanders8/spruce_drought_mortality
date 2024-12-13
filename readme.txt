@@ -11,3 +11,9 @@ This code was used to calibrate and evaluate the differnt statistic logistic reg
 
 # lpj-guess_european_applications_tree_species_code_drought_mortality.zip
 Consists the LPJ-GUESS source code with the implemented empirical-based drought mortality algorithms. 
+
+##
+This is the associated link to the publication
+
+
+
