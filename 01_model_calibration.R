@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------#
-# Project:  Modelling past and future drought impacts on Norway spruce forests 
-#           in Germany
+# Project:  Modelling past and future impacts of droughts on tree mortality and carbon
+#           storage in Norway spruce stands in Germany
 #            
 # Author:   Tim Anders
 # Email:    tim.anders@senckenberg.de
