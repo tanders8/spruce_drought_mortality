@@ -43,7 +43,8 @@ Follow the documentation within the extracted folder to compile and run LPJ-GUES
 
 # Publication
 
-This repository accompanies the following publication:Modelling past and future impacts of droughts on tree mortality and carbon storage in Norway spruce stands in GermanyLink: https://doi.org/10.1016/j.ecolmodel.2024.110987
+This repository accompanies the following publication: Modelling past and future impacts of droughts on tree mortality and carbon storage in Norway spruce stands in GermanyLink: https://doi.org/10.1016/j.ecolmodel.2024.110987
+
 
 # Citation
 
