@@ -201,17 +201,27 @@ cal_plot_test <- ggplot(test_m, aes(x=amean_obs*100, y=amean_pred*100, color = m
   geom_point() +
   ylim(0,15) +
   xlim(0,15) +
-  xlab("Mean annual observed drought-related mortality (GFC) [%]") +
-  ylab("Mean annual predicted drought-related mortality [%]") +
-  geom_smooth(method = "lm", fullrange = TRUE) +
+  xlab("Mean annual observed mortality rate (WZE) [%]") +
+  ylab("Mean annual predicted mortality rate [%]") +
+  geom_smooth(method = "lm", fullrange = TRUE, se = T) +
   geom_abline (slope=1, linetype = "dashed", color="Red") +
+  annotate("rect", xmin = 0.25, xmax = 5, ymin = 9.5, ymax = 13.6, alpha = 0.5, fill = "lightgrey") +
   scale_color_manual(values =  c("#D55E00", "#009E73", "#56B4E9", "#CC79A7")) +
-  annotate(geom = "text", x = 1, y = 13, label = paste0('R^2 == ', round(r2_m1, 4)), parse = TRUE, colour ="#D55E00") +
-  annotate(geom = "text", x = 1, y = 12, label =paste0('R^2 == ', round(r2_m2, 4)), parse = TRUE, colour ="#009E73") +
-  annotate(geom = "text", x = 1, y = 11, label =paste0('R^2 == ', round(r2_m3a, 4)), parse = TRUE, colour ="#56B4E9") +
-  annotate(geom = "text", x = 1, y = 10, label =paste0('R^2 == ', round(r2_m3b, 4)), parse = TRUE, colour ="#CC79A7") +
+  annotate(geom = "text", x = 2.5, y = 13, label = paste0('R^2 == ', round(r2_m1, 4)), parse = TRUE, colour ="#D55E00") +
+  annotate(geom = "text", x = 2.5, y = 12, label =paste0('R^2 == ', round(r2_m2, 4)), parse = TRUE, colour ="#009E73") +
+  annotate(geom = "text", x = 2.5, y = 11, label =paste0('R^2 == ', round(r2_m3a, 4)), parse = TRUE, colour ="#56B4E9") +
+  annotate(geom = "text", x = 2.3, y = 10, label =paste0('R^2 == ', round(r2_m3b, 4)), parse = TRUE, colour ="#CC79A7") +
   ggtitle("Calibration plot testing data") +
-  theme_bw()
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5, size = 10),
+        legend.key.size = unit(2, "line"),
+        plot.subtitle = element_text(size = 10),
+        legend.title = element_text(size = 10, face = "bold"),
+        legend.text = element_text(size = 10),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10, vjust = +2),
+        axis.text = element_text(size = 10),
+        plot.margin = unit(c(0.25, 0.25, 0.25, 0.25), 'cm'))
 cal_plot_test
 
 
@@ -274,22 +284,32 @@ cal_plot_train <- ggplot(train_m, aes(x=amean_obs*100, y=amean_pred*100, color =
   geom_point() +
   ylim(0,15) +
   xlim(0,15) +
-  xlab("Mean annual observed drought-related mortality (GFC) [%]") +
-  ylab("Mean annual predicted drought-related mortality [%]") +
-  geom_smooth(method = "lm", fullrange = TRUE) +
+  xlab("Mean annual observed mortality rate (WZE) [%]") +
+  ylab("Mean annual predicted mortality rate [%]") +
+  geom_smooth(method = "lm", fullrange = TRUE, se = T) +
   geom_abline (slope=1, linetype = "dashed", color="Red") +
   scale_color_manual(values =  c("#D55E00", "#009E73", "#56B4E9", "#CC79A7")) +
-  annotate(geom = "text", x = 1, y = 13, label = paste0('R^2 == ', round(r2_m1, 4)), parse = TRUE, colour ="#D55E00") +
-  annotate(geom = "text", x = 1, y = 12, label =paste0('R^2 == ', round(r2_m2, 4)), parse = TRUE, colour ="#009E73") +
-  annotate(geom = "text", x = 1, y = 11, label =paste0('R^2 == ', round(r2_m3a, 4)), parse = TRUE, colour ="#56B4E9") +
-  annotate(geom = "text", x = 1, y = 10, label =paste0('R^2 == ', round(r2_m3b, 4)), parse = TRUE, colour ="#CC79A7") +
+  annotate("rect", xmin = 0.25, xmax = 5, ymin = 9.5, ymax = 13.6, alpha = 0.5, fill = "lightgrey") +
+  annotate(geom = "text", x = 2.5, y = 13, label = paste0('R^2 == ', round(r2_m1, 4)), parse = TRUE, colour ="#D55E00") +
+  annotate(geom = "text", x = 2.5, y = 12, label =paste0('R^2 == ', round(r2_m2, 4)), parse = TRUE, colour ="#009E73") +
+  annotate(geom = "text", x = 2.5, y = 11, label =paste0('R^2 == ', round(r2_m3a, 4)), parse = TRUE, colour ="#56B4E9") +
+  annotate(geom = "text", x = 2.3, y = 10, label =paste0('R^2 == ', round(r2_m3b, 4)), parse = TRUE, colour ="#CC79A7") +
   ggtitle("Calibration plot training data") +
-  theme_bw()
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5, size = 10),
+        legend.key.size = unit(2, "line"),
+        plot.subtitle = element_text(size = 10),
+        legend.title = element_text(size = 10, face = "bold"),
+        legend.text = element_text(size = 10),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10, vjust = +2),
+        axis.text = element_text(size = 10),
+        plot.margin = unit(c(0.25, 0.25, 0.25, 0.25), 'cm'))
 cal_plot_train
 
 cal_plot_train_test <- ggarrange(cal_plot_train, cal_plot_test,
-                                 labels = c("A", "B"),
+                                 labels = c("a", "b"),
                                  ncol = 2, nrow = 1, common.legend = T,
                                  legend = "bottom")
-ggsave("cal_plot_train_test_1104.jpeg", plot = cal_plot_train_test, width = 12, height = 6, dpi = 300, units = "in")
+ggsave("/home/tanders/Mortalitymodel/figures_spruce_drought_mortality/cal_plot_train_test_1104.jpeg", plot = cal_plot_train_test, width = 200, height = 120, dpi = 300, units = "mm")
 
